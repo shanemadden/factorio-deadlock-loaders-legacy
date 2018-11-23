@@ -1,0 +1,145 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.6.0
+Date: 08. 05. 2018
+  Changes:
+    - Final "definitive" version for Factorio 0.16.
+    - Another check added to belt snapping, courtesy of shanemadden.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.6
+Date: 06. 05. 2018
+  Inter-mod support:
+    - Factorio base 0.16.36 (0.16 stable) is now the minimum requirement.
+    - For Bob's Logistics support, Bob's Logistics 0.16.22 is now the minimum requirement.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.5
+Date: 04. 05. 2018
+  Changes:
+    - The map/minimap colour for compact loaders now defaults to the same as vanilla loaders (dull blue).
+    - As an alternative, a new config setting has been provided, off by default. Belts, splitters, undergrounds, compact loaders and stacking beltboxes appear on maps with various shades of the respective belt tier's colour.
+    - Maps in existing save games won't update until the chunk is re-charted (by radar, by building in the chunk, or with the command).
+    - Note to translators: there is a new config option, nothing else has changed.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.4
+Date: 25. 04. 2018
+  Changes:
+    - Snapping improved, takes cues from adjacent belts when setting input/output mode (code by shanemadden).
+    - Snapping settings changed. Former snap-to-inventory settings merged. New belt snapping has a new setting.
+    - Entity description informs newbies about input/output mode rotation.
+    - Note to translators: entity description and settings labels and descriptions have changed.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.3
+Date: 06. 04. 2018
+  Bugfixes:
+    - Loader snapping repaired after a recent breaking change.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.2
+Date: 05. 04. 2018
+  Bugfixes:
+    - If mod support specifies items which don't exist today, the tier creation is skipped and logged rather than halting the loading process.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.1
+Date: 04. 04. 2018
+  Bugfixes:
+    - Fixed handling of default underground->loader recipe gen when multiple difficulties are defined unusually by other mods (AAI Industry).
+    - Fixed a typo in FactorioExtended support (tier 5 splitter).
+---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 04. 04. 2018
+  Inter-mod support:
+    - Added a "public" function for other modders. Now you can easily add or change loader tiers yourself. See the documentation pdf in the zipfile for details.
+    - Added tier 0 loaders to Xander Mod and Bob's Logistics.
+    - Belt icons are now themed when belt style is on.
+    - Factorio-Extended-Plus (a fork of Factorio-Extended) is now supported.
+  Changes:
+    - Mall-breaking change, apologies: by default, loaders now derive their recipes from the same tier's underneathies. This can be overridden by other mods if they want.
+    - Removed loader research. Loaders are now unlocked by the Logistics technology chain.
+    - There was some internal renaming. Your saves will be migrated.
+    - Vanilla 1x2 loaders are no longer styled.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.1
+Date: 30. 03. 2018
+  Changes:
+    - Swapped Bob's Logistics tier colours around. BL 0.16.17 is now required.
+    - Added a deferred check for altered vanilla belt speeds to catch updates in other mods.
+    - Added theme support for tier 0 belts etc. in Xander Mod and Bob's Logistics.
+    - Did not add tier 0 loaders. No point.
+    - Added per-mod localised names.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.0
+Date: 28. 03. 2018
+  Changes:
+    - Made the internal structure of the mod properly modular, reducing variable/function scope.
+    - Added Paradox Mode. This is Compact Loaders without loaders, but allows you to keep the belt styling if that's all you want.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 24. 03. 2018
+  Changes:
+    - An optional new theme for belts is available. It is off by default: go to Options > Mod Settings to activate it.
+    - The theme uses the same two layers for all belts across the rainbow, saving VRAM for belt sprites (by as much as 60% if extra tiers are enabled for other mods).
+    - However it also increases rendering time slightly, so YMMV: it might help or hinder or neither, depending on your PC's capabilities. Anyway, they look pretty.
+    - Shrunk the loader's collision box, by popular request.
+  Inter-mod support:
+    - The belt theme overrides modded belts as well, making them look consistent and providing high-res versions if none existed previously.
+    - If the belt theme is off, loaders and underneathies get their belt sprites automatically from modded belt prototypes, instead of assuming the filenames.
+    - Loaders now automatically look up their speed from the corresponding belt prototype, instead of assuming vanilla speed progression.
+    - Added support for Xander Mod tier 4.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.7
+Date: 06. 03. 2018
+  Changes:
+    - Snapping settings are now per-player instead of at start-up, to enable individual preferences in MP.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.6
+Date: 02. 03. 2018
+  Inter-mod support:
+    - Look for "revive" flag passed by Nanobots in on_entity_built and cancel snapping.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 12. 02. 2018
+  Changes:
+    - Final, final graphics pass.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.4
+Date: 11. 02. 2018
+  Changes:
+    - German localisation added.
+    - Fixed missing struts on north-facing underneathie.
+    - Removed duplicate base sprites, saving a bit of memory.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.3
+Date: 11. 02. 2018
+  Changes:
+    - Added a setting to re-style underground belts to match loaders, off by default.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 11. 02. 2018
+  Changes:
+    - Reverted weathering effect on textures. This isn't Etsy.
+    - Updated low-res textures.
+    - Updated technology icon.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 10. 02. 2018
+  Changes:
+    - Tweak to tier colours and metal textures, to match vanilla palette more closely.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 10. 02. 2018
+  Changes:
+    - Graphics rebuilt from scratch using Blender for a clean, original look.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 06. 02. 2018
+  Bugfixes:
+    - Snapping code now looks for any entity with a suitable inventory rather than from a list of types.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 05. 02. 2018
+  Changes:
+    - Loader sprites and icons reworked. They are now separated into layers and masks, saving VRAM and allowing for any dynamic colour without needing new sprites.
+    - Tier 4 and 5 loaders become available if Factorio Extended (Transport) is active (and if you can get it to load).
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 04. 02. 2018
+  Changes:
+    - Initial release.

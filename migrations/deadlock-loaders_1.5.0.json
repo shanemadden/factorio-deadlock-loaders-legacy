@@ -1,0 +1,26 @@
+{
+  "item":
+  [
+    ["deadlock-loader-item-1", "deadlock-loader-1"],
+    ["deadlock-loader-item-2", "deadlock-loader-2"],
+    ["deadlock-loader-item-3", "deadlock-loader-3"],
+    ["deadlock-loader-item-4", "deadlock-loader-4"],
+    ["deadlock-loader-item-5", "deadlock-loader-5"]
+  ],
+  "recipe":
+  [
+    ["deadlock-loader-recipe-1", "deadlock-loader-1"],
+    ["deadlock-loader-recipe-2", "deadlock-loader-2"],
+    ["deadlock-loader-recipe-3", "deadlock-loader-3"],
+    ["deadlock-loader-recipe-4", "deadlock-loader-4"],
+    ["deadlock-loader-recipe-5", "deadlock-loader-5"]
+  ],
+  "entity":
+  [
+    ["deadlock-loader-entity-1", "deadlock-loader-1"],
+    ["deadlock-loader-entity-2", "deadlock-loader-2"],
+    ["deadlock-loader-entity-3", "deadlock-loader-3"],
+    ["deadlock-loader-entity-4", "deadlock-loader-4"],
+    ["deadlock-loader-entity-5", "deadlock-loader-5"]
+  ]
+}

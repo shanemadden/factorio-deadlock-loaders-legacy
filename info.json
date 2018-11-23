@@ -1,0 +1,11 @@
+{
+	"name": "DeadlockLoaders",
+	"version": "1.6.0",
+	"title": "Deadlock's Compact Loaders",
+	"author": "Deadlock989, shanemadden",
+	"contact": "",
+    "homepage": "https://mods.factorio.com/mod/DeadlockLoaders",
+	"dependencies": ["base >= 0.16.36", "?DeadlockStacking", "?xander-mod", "?boblogistics >= 0.16.22", "?FactorioExtended-Transport", "?FactorioExtended-Plus-Transport"],
+	"description": "Minimalist 1x1 loaders, with optional new styles for belts and undergrounds.",
+	"factorio_version": "0.16"
+}
