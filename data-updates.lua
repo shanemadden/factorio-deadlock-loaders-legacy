@@ -10,4 +10,4 @@ elseif mods["FactorioExtended-Transport"] then
 end
 
 -- fixes
-require("prototypes.fixes")
+--require("prototypes.fixes")

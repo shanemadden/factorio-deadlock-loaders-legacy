@@ -1,11 +1,11 @@
 {
 	"name": "DeadlockLoaders",
-	"version": "1.6.0",
+	"version": "1.7.0",
 	"title": "Deadlock's Compact Loaders",
 	"author": "Deadlock989, shanemadden",
 	"contact": "",
     "homepage": "https://mods.factorio.com/mod/DeadlockLoaders",
-	"dependencies": ["base >= 0.16.36", "?DeadlockStacking", "?xander-mod", "?boblogistics >= 0.16.22", "?FactorioExtended-Transport", "?FactorioExtended-Plus-Transport"],
-	"description": "Minimalist 1x1 loaders, with optional new styles for belts and undergrounds.",
+	"dependencies": ["base >= 0.16.36", "deadlock-beltboxes-loaders", "?DeadlockStacking", "?xander-mod", "?boblogistics >= 0.16.22", "?FactorioExtended-Transport", "?FactorioExtended-Plus-Transport"],
+	"description": "Migration mod for combined Deadlock's Stacking Beltboxes & Compact Loaders mod, please download required dependency deadlock-beltboxes-loaders and load any older saves at least once with this migration mod still present.",
 	"factorio_version": "0.16"
 }

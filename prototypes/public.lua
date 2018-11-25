@@ -1,6 +1,6 @@
 local CFUNC = require("prototypes.create")
 
-if not deadlock_loaders then deadlock_loaders = {} end
+if not deadlock_loaders_legacy then deadlock_loaders_legacy = {} end
 
 local function log_error(string) 
     log("DCL: "..string)
@@ -13,7 +13,7 @@ local function is_colour(c)
     return true
 end
 
-function deadlock_loaders.create(tier_table)
+function deadlock_loaders_legacy.create(tier_table)
     -- sanity checks
     if not tier_table or not is_table(tier_table) then
         log_error("Non-table passed to deadlock_loaders.create() - must be a properly formatted tier table.\nSee the readme.pdf.")
@@ -72,7 +72,7 @@ function deadlock_loaders.create(tier_table)
     if not DCL.PARADOX and data.raw["transport-belt"][tier_table.transport_belt] then
         CFUNC.create_loader_item(tier_table.tier)
         CFUNC.create_loader_recipe(tier_table.tier, tier_table.ingredients)
-        CFUNC.create_loader_technology(tier_table.tier)
+        --CFUNC.create_loader_technology(tier_table.tier)
         CFUNC.create_loader_entity(tier_table.tier)
     end
     CFUNC.create_belt_style(tier_table.tier)

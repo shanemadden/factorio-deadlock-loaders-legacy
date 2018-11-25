@@ -36,4 +36,4 @@ local tiers = {
     },
 }
 
-for _,tier in pairs(tiers) do deadlock_loaders.create(tier) end
+for _,tier in pairs(tiers) do deadlock_loaders_legacy.create(tier) end
