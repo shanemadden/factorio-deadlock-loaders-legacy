@@ -14,7 +14,7 @@ function CFUNC.create_loader_item(tier)
             },
             icon_size = 32,
             stack_size = 50,
-            flags = { "goes-to-quickbar" },
+            flags = {},
             place_result = "deadlock-loader-"..tier,
             group = "logistics",
             subgroup = "beltboxes",
