@@ -73,22 +73,29 @@ end
 
 -- entity
 function CFUNC.create_loader_entity(tier)
-    local entity = table.deepcopy(data.raw["loader"]["loader"])
+    local entity = {}
+    entity.type = "loader"
     entity.name = "deadlock-loader-"..tier
     entity.localised_name = {"entity-name."..DCL.LOCALISATION_PREFIX[tier].."-loader-"..tier}
     entity.localised_description = {"entity-description.deadlock-loader"}
     entity.icons = data.raw["item"]["deadlock-loader-"..tier].icons
     entity.icon_size = 32
+    entity.flags = {"placeable-neutral", "player-creation", "fast-replaceable-no-build-while-moving"}
     entity.vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 1.0 }	
     entity.open_sound = { filename = "__base__/sound/wooden-chest-open.ogg", volume = 1.0 }	
-    entity.close_sound = { filename = "__base__/sound/wooden-chest-close.ogg", volume = 1.0 }	
+    entity.close_sound = { filename = "__base__/sound/wooden-chest-close.ogg", volume = 1.0 }
+    entity.corpse = "small-remnants"
     entity.collision_box = { {-0.2, -0.2}, {0.2, 0.2} }
     entity.collision_mask = {"item-layer", "object-layer", "player-layer", "water-tile"}
     entity.selection_box = { {-0.5, -0.5}, {0.5, 0.5} }
     entity.minable = { hardness = 0.2, mining_time = 0.5, result = "deadlock-loader-"..tier }
+    entity.max_health = 170
+    entity.resistances = {{type = "fire", percent = 60 }}
     entity.belt_distance = 0
     entity.container_distance = 1.0
     entity.belt_length = 0.5
+    entity.filter_count = 5
+    entity.animation_speed_coefficient = 32
     entity.speed = data.raw["transport-belt"][DCL.BELTS[tier]].speed
     entity.structure = {
         direction_in = {
@@ -237,27 +244,31 @@ function CFUNC.create_belt_style(tier)
         -- update belt components of loaders
         local entity = data.raw["loader"]["deadlock-loader-"..tier]
         if entity then
-            for bc,y in pairs(DCL.BELT_COMPONENTS) do
-                if entity[bc] then
-                    entity[bc] = generate_layer(entity[bc],
-                        data.raw["transport-belt"][DCL.BELTS[tier]][bc].filename,
-                        data.raw["transport-belt"][DCL.BELTS[tier]][bc].width,
-                        data.raw["transport-belt"][DCL.BELTS[tier]][bc].height,
-                        data.raw["transport-belt"][DCL.BELTS[tier]][bc].line_length,
-                        data.raw["transport-belt"][DCL.BELTS[tier]][bc].frame_count,
-                        data.raw["transport-belt"][DCL.BELTS[tier]][bc].y,
-                        data.raw["transport-belt"][DCL.BELTS[tier]][bc].scale
-                    )
-                    if (data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version) then
-                        entity[bc].hr_version = generate_layer(entity[bc].hr_version,
-                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.filename,
-                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.width,
-                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.height,
-                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.line_length,
-                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.frame_count,
-                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.y,
-                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.scale
+            if data.raw["transport-belt"][DCL.BELTS[tier]].belt_animation_set then
+                entity.belt_animation_set = data.raw["transport-belt"][DCL.BELTS[tier]].belt_animation_set
+            else 
+                for bc,y in pairs(DCL.BELT_COMPONENTS) do
+                    if entity[bc] then
+                        entity[bc] = generate_layer(entity[bc],
+                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].filename,
+                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].width,
+                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].height,
+                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].line_length,
+                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].frame_count,
+                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].y,
+                            data.raw["transport-belt"][DCL.BELTS[tier]][bc].scale
                         )
+                        if (data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version) then
+                            entity[bc].hr_version = generate_layer(entity[bc].hr_version,
+                                data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.filename,
+                                data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.width,
+                                data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.height,
+                                data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.line_length,
+                                data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.frame_count,
+                                data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.y,
+                                data.raw["transport-belt"][DCL.BELTS[tier]][bc].hr_version.scale
+                            )
+                        end
                     end
                 end
             end
